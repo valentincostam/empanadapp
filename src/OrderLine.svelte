@@ -26,17 +26,19 @@
 
 <style>
   .order-line {
+    --gap: .4rem;
     display: grid;
-    grid-template-columns: 2rem 1fr 4fr 2rem 2rem;
-    gap: .2rem;
-    margin-bottom: .2rem;
+    grid-template-columns: 2.2rem 1fr 4fr 2.2rem 2.2rem;
+    gap: var(--gap);
+    margin-bottom: var(--gap);
   }
 
   .input {
     font-size: 1rem;
     width: 100%;
-    padding: .5rem 1rem;
+    padding: .6rem .8rem;
     border: 1px solid #ccc;
+    border-radius: 3px;
   }
 
   .button {
@@ -45,6 +47,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: 3px;
   }
 
   .icon {
@@ -109,6 +112,7 @@
     type="text"
     list="availableFlavors"
     placeholder="relleno"
+    autocapitalize="off"
     bind:value={flavor}
   >
   

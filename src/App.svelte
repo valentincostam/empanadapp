@@ -62,8 +62,37 @@
     text-align: center;
   }
 
+  .add-order-line {
+    display: block;
+    text-align: center;
+    padding: .7rem 1.2rem;
+    width: 100%;
+    border: 0;
+    color: #fff;
+    background-color: #ffa753;
+    font-size: 1rem;
+    border-radius: 3px;
+  }
+
   .message {
+    border-radius: 3px;
+    padding: 1rem;
+    font-size: 1.1rem;
     white-space: pre-wrap;
+    border: 1px solid #ccc;
+  }
+
+  .copy-message {
+    display: block;
+    text-align: center;
+    padding: .7rem 1.2rem;
+    width: 100%;
+    border: 0;
+    font-size: 1rem;
+    border-radius: 3px;
+    background-color: #fff;
+    border: 1px solid blue;
+    color: blue;
   }
 </style>
 
@@ -89,5 +118,8 @@
 
 	<pre class="message">{message}</pre>
 
-	<button on:click={copyMessage}>Copiar mensaje</button>
+	<button
+    class="copy-message"
+    on:click={copyMessage}
+  >Copiar mensaje</button>
 </main>
