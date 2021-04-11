@@ -28,7 +28,7 @@
   .order-line {
     --gap: .4rem;
     display: grid;
-    grid-template-columns: 2.2rem 1fr 4fr 2.2rem 2.2rem;
+    grid-template-columns: 2.2rem 3rem 1fr 2.2rem 2.2rem;
     gap: var(--gap);
     margin-bottom: var(--gap);
   }
@@ -70,7 +70,14 @@
   }
 
   .quantity {
+    -moz-appearance: textfield;
     text-align: right;
+  }
+
+  .quantity::-webkit-outer-spin-button,
+  .quantity::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
   }
 
   .flavor {

@@ -56,6 +56,8 @@
 <style>
   .main {
     padding: 1rem;
+    max-width: 600px;
+    margin: 0 auto;
   }
 
   .title {
@@ -68,8 +70,9 @@
     padding: .7rem 1.2rem;
     width: 100%;
     border: 0;
-    color: #fff;
-    background-color: #ffa753;
+    color: #ffa753;
+    border: 1px solid #ffa753;
+    background-color: #fff;
     font-size: 1rem;
     border-radius: 3px;
   }
