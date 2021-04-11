@@ -25,22 +25,40 @@
 </script>
 
 <style>
-  .quantity {
-    width: 3rem;
-    text-align: right;
+  .order-line {
+    display: grid;
+    grid-template-columns: 2rem 2rem 1fr 2rem 2rem;
+    gap: .2rem;
+    margin-bottom: .2rem;
   }
 
-  .has-error {
+  .input {
+    font-size: 1rem;
+    width: 100%;
+  }
+
+  .quantity {
+  }
+
+  .flavor {
+  }
+
+  .wrong {
     border-color: red;
     border-style: dashed;
   }
+
+
 </style>
 
-<div>
-  <button class="remove" on:click={() => dispatch('remove')}>X</button>
+<div class="order-line">
+  <button
+    class="button remove"
+    on:click={() => dispatch('remove')}
+  >×</button>
   
   <input
-    class="quantity"
+    class="input quantity"
     type="number"
     min="1"
     bind:value={quantity}
@@ -48,8 +66,8 @@
   >
 
   <input
-    class="flavor"
-    class:has-error={isDuplicated}
+    class="input flavor"
+    class:wrong={isDuplicated}
     type="text"
     list="availableFlavors"
     placeholder="relleno"
@@ -62,6 +80,12 @@
     {/each}
   </datalist>
 
-  <button class="" on:click={sum}>+</button>
-  <button class="" on:click={substract}>-</button>
+  <button
+    class="button sum"
+    on:click={sum}
+  >+</button>
+  <button
+    class="button substract"
+    on:click={substract}
+  >-</button>
 </div>

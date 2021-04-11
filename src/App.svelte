@@ -54,10 +54,21 @@
 </script>
 
 <style>
+  .main {
+    padding: 1rem;
+  }
+
+  .title {
+    text-align: center;
+  }
+
+  .message {
+    white-space: pre-wrap;
+  }
 </style>
 
 <main class="main">
-	<h1>Empanadapp</h1>
+	<h1 class="title">Empanadapp</h1>
 
   {#each orderLines as {quantity, flavor, id} (id)}
     <OrderLine
@@ -70,10 +81,13 @@
   {/each}
 
   {#if !hasEmptyLine && !hasDuplicates}
-    <button on:click={addOrderLine}>Agregar otro relleno</button>
+    <button
+      class="add-order-line"
+      on:click={addOrderLine}
+    >Agregar otro relleno</button>
   {/if}
 
-	<pre>{message}</pre>
+	<pre class="message">{message}</pre>
 
 	<button on:click={copyMessage}>Copiar mensaje</button>
 </main>
