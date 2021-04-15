@@ -160,7 +160,7 @@
       </button>
     {/if}
 
-    {#if $orderLines.length}
+    {#if validOrderLines.length}
       <div class="message">
         {message}
       </div>
