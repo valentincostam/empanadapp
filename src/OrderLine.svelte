@@ -28,7 +28,8 @@
   .order-line {
     --gap: .4rem;
     display: grid;
-    grid-template-columns: 2.2rem 3rem 1fr 2.2rem 2.2rem;
+    grid-template-columns: 3rem 3rem 1fr 3rem 3rem;
+    grid-template-rows: 3rem;
     gap: var(--gap);
     margin-bottom: var(--gap);
   }
@@ -37,8 +38,12 @@
     font-size: 1rem;
     width: 100%;
     padding: .6rem .8rem;
-    border: 1px solid #ccc;
+    border: 0;
     border-radius: 3px;
+  }
+
+  .input::-webkit-calendar-picker-indicator {
+    display: none;
   }
 
   .button {
@@ -58,15 +63,15 @@
   }
 
   .remove {
-    background-color: red;
+    background-color: #bd9354;
   }
 
   .sum {
-    background-color: green;
+    background-color: #85603f;
   }
 
   .substract {
-    background-color: blue;
+    background-color: #bd9354;
   }
 
   .quantity {
@@ -118,7 +123,7 @@
     class:wrong={isDuplicated}
     type="text"
     list="availableFlavors"
-    placeholder="relleno"
+    placeholder="Escribí el relleno..."
     autocapitalize="off"
     bind:value={flavor}
   >
