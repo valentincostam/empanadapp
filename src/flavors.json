@@ -1,13 +1,17 @@
 {
   "flavors": [
-    "carne",
-    "carne dulce",
-    "jamón y queso",
-    "pollo",
-    "verdura",
-    "humita",
-    "roquefort",
+    "atún",
     "capresse",
-    "cebolla y queso"
+    "carne dulce",
+    "carne",
+    "cebolla y queso",
+    "choclo",
+    "humita",
+    "jamón y queso",
+    "pescado",
+    "pollo",
+    "roquefort",
+    "verdura y queso",
+    "verdura"
   ]
 }
