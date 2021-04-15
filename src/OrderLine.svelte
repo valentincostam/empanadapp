@@ -85,12 +85,8 @@
       margin: 0;
   }
 
-  .flavor {
-  }
-
   .wrong {
-    border-color: red;
-    border-style: dashed;
+    border: .2rem dashed #c31111;
   }
 
 
@@ -119,7 +115,7 @@
   >
 
   <input
-    class="input flavor"
+    class="input"
     class:wrong={isDuplicated}
     type="text"
     list="availableFlavors"
