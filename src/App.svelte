@@ -80,6 +80,12 @@
     justify-content: center;
     align-items: center;
     gap: .5rem;
+    padding: .7rem 1.2rem;
+    width: 100%;
+    border: 0;
+    color: #fff;
+    font-size: 1rem;
+    border-radius: 3px;
   }
 
   .button__icon {
@@ -90,14 +96,7 @@
   }
 
   .add-order-line {
-    padding: .7rem 1.2rem;
-    width: 100%;
-    border: 0;
     background-color: #85603f;
-    color: #fff;
-    font-size: 1rem;
-    border-radius: 3px;
-    font-weight: bold;
   }
 
   .message {
@@ -110,13 +109,7 @@
   }
 
   .copy-message {
-    padding: .7rem 1.2rem;
-    width: 100%;
-    border: 0;
-    font-size: 1rem;
-    border-radius: 3px;
     background-color: #9e7540;
-    color: #fff;
   }
 
   .footer {
@@ -163,28 +156,31 @@
         >
           <path d="M20 15h4.071v2h-4.071v4.071h-2v-4.071h-4.071v-2h4.071v-4.071h2v4.071zm-8 6h-12v-2h12v2zm0-4.024h-12v-2h12v2zm0-3.976h-12v-2h12v2zm12-4h-24v-2h24v2zm0-4h-24v-2h24v2z"/>
         </svg>
-        Agregar otro relleno
+        Agregar {$orderLines.length == 0 ? 'una' : 'otra'} variedad
       </button>
     {/if}
 
-    <div class="message">
-      {message}
-    </div>
-    <button
-      bind:this={copyButton}
-      class="button copy-message"
-      on:click={copyMessage}
-    >
-      <svg
-        class="button__icon"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
+    {#if $orderLines.length}
+      <div class="message">
+        {message}
+      </div>
+
+      <button
+        bind:this={copyButton}
+        class="button copy-message"
+        on:click={copyMessage}
       >
-        <path d="M18 6v-6h-18v18h6v6h18v-18h-6zm-12 10h-4v-14h14v4h-10v10zm16 6h-14v-14h14v14z"/>
-      </svg>
-      <span>Copiar mensaje</span>
-    </button>
+        <svg
+          class="button__icon"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+        >
+          <path d="M18 6v-6h-18v18h6v6h18v-18h-6zm-12 10h-4v-14h14v4h-10v10zm16 6h-14v-14h14v14z"/>
+        </svg>
+        <span>Copiar mensaje</span>
+      </button>
+    {/if}
   </main>
 
   <footer class="footer">
