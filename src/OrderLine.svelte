@@ -1,11 +1,13 @@
 <script>
-	import { createEventDispatcher } from "svelte";
+	import { createEventDispatcher, onMount } from "svelte";
 	export let availableFlavors;
 	export let quantity;
 	export let flavor;
   export let isDuplicated;
 
 	const dispatch = createEventDispatcher();
+        let flavorInput;
+  onMount(() => flavorInput.focus());
 
   function sum() {
     quantity++;
@@ -122,6 +124,7 @@
     placeholder="Escribí el relleno..."
     autocapitalize="off"
     bind:value={flavor}
+    bind:this={flavorInput}
   >
   
   <datalist id="availableFlavors">
