@@ -1,11 +1,11 @@
 <script>
-	import { createEventDispatcher } from "svelte";
-	export let availableFlavors;
-	export let quantity;
-	export let flavor;
+  import { createEventDispatcher } from "svelte";
+  export let availableFlavors;
+  export let quantity;
+  export let flavor;
   export let isDuplicated;
 
-	const dispatch = createEventDispatcher();
+  const dispatch = createEventDispatcher();
 
   function sum() {
     quantity++;

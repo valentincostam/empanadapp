@@ -1,33 +1,33 @@
 <script>
   import OrderLine from "./OrderLine.svelte";
-	import { flavors } from "./flavors.json";
+  import { flavors } from "./flavors.json";
   import { orderLines } from "./stores";
 
   let copyButton;
-	
-	$: usedFlavors = $orderLines.map(({ flavor }) => flavor);
+  
+  $: usedFlavors = $orderLines.map(({ flavor }) => flavor);
 
-	$: availableFlavors = flavors.filter(flavor => !usedFlavors.includes(flavor));
+  $: availableFlavors = flavors.filter(flavor => !usedFlavors.includes(flavor));
 
-	$: validOrderLines = $orderLines.filter(({ quantity, flavor }) => {
+  $: validOrderLines = $orderLines.filter(({ quantity, flavor }) => {
     const isEmpty = quantity <= 0 || flavor.trim() == '';
     const isDuplicated = checkDuplicates(flavor);
 
     return !isEmpty && !isDuplicated;
   });
-	
-	$: total = validOrderLines.reduce((total, { quantity }) => total + quantity, 0);
+  
+  $: total = validOrderLines.reduce((total, { quantity }) => total + quantity, 0);
 
-	$: order = validOrderLines
+  $: order = validOrderLines
     .map(({ quantity, flavor }) => `${quantity} de ${flavor.trim()}\n`)
     .join('');
 
-	$: message = `Hola. Te encargo ${total} empanadas, por favor:\n\n${order}`;
+  $: message = `Hola. Te encargo ${total} empanadas, por favor:\n\n${order}`;
 
   $: hasDuplicates = new Set(usedFlavors).size !== validOrderLines.length;
 
   $: hasEmptyLine = $orderLines.some(({ flavor }) => flavor.trim() == '');
-	
+  
   function addOrderLine() {
     const newOrderLine = {
       id: `${Date.now()}${Math.floor(Math.random() * 9999)}`,
@@ -38,12 +38,12 @@
     $orderLines = [...$orderLines, newOrderLine];
   }
 
-	function removeOrderLine(id) {
-		$orderLines = $orderLines.filter(orderLine => orderLine.id != id);
-	}
+  function removeOrderLine(id) {
+    $orderLines = $orderLines.filter(orderLine => orderLine.id != id);
+  }
 
-	function copyMessage() {
-		navigator.clipboard.writeText(message);
+  function copyMessage() {
+    navigator.clipboard.writeText(message);
     copyButton.querySelector('span').textContent = '¡Copiado!';
     copyButton.disabled = true;
     
@@ -51,7 +51,7 @@
       copyButton.querySelector('span').textContent = 'Copiar mensaje';
       copyButton.disabled = false;
     }, 2000);
-	}
+  }
 
   function checkDuplicates(flavor) {
     return usedFlavors.filter(f => f.trim() === flavor.trim()).length > 1;
