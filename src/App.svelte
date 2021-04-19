@@ -79,7 +79,7 @@
     font-size: 1.1rem;
     text-align: center;
     margin: 0;
-    margin-bottom: var(--gap);
+    margin-bottom: calc(var(--gap) * 1.5);
   }
 
   .button {
