@@ -65,7 +65,7 @@
     margin: 0 auto;
   }
 
-  .title {
+  h1 {
     text-align: center;
     font-weight: 900;
     font-size: 2.4rem;
@@ -104,7 +104,7 @@
     padding: 1rem;
     font-size: 1.1rem;
     white-space: pre-wrap;
-    margin: 1rem 0 .5rem;
+    margin: var(--gap) 0 var(--small-gap);
     background-color: var(--white);
   }
 
@@ -112,24 +112,24 @@
     background-color: var(--secondary-color);
   }
 
-  .footer {
-    margin-top: 1rem;
+  footer {
+    margin-top: var(--gap);
     text-align: center;
   }
 
-  .link {
+  a {
     text-decoration: none;
     color: var(--primary-color);
   }
 
-  .link:hover {
+  a:hover {
     text-decoration: underline;
   }
 </style>
 
 <div class="container">
   <header>
-    <h1 class="title">empanad.app</h1>
+    <h1>empanad.app</h1>
   </header>
 
   <main>
@@ -183,7 +183,7 @@
     {/if}
   </main>
 
-  <footer class="footer">
-    Hecho por <a class="link" href="https://valentincosta.com"><strong>Valentín Costa</strong></a>
+  <footer>
+    Hecho por <a href="https://valentincosta.com"><strong>Valentín Costa</strong></a>
   </footer>
 </div>

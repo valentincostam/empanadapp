@@ -39,7 +39,7 @@
     margin-bottom: var(--small-gap);
   }
 
-  .input {
+  input {
     font-size: 1rem;
     width: 100%;
     padding: .6rem .8rem;
@@ -48,11 +48,11 @@
     color: var(--font-color)
   }
 
-  .input::-webkit-calendar-picker-indicator {
+  input::-webkit-calendar-picker-indicator {
     display: none;
   }
 
-  .button {
+  button {
     border: 0;
     color: var(--white);
     display: flex;
@@ -94,13 +94,11 @@
   .wrong {
     border: .2rem dashed var(--error-color);
   }
-
-
 </style>
 
 <div class="order-line">
   <button
-    class="button remove"
+    class="remove"
     on:click={() => dispatch('remove')}
   >
     <svg
@@ -108,7 +106,8 @@
       width="24"
       height="24"
       viewBox="0 0 24 24"
-      ><path d="M23.954 21.03l-9.184-9.095 9.092-9.174-2.832-2.807-9.09 9.179-9.176-9.088-2.81 2.81 9.186 9.105-9.095 9.184 2.81 2.81 9.112-9.192 9.18 9.1z"/>
+    >
+      <path d="M23.954 21.03l-9.184-9.095 9.092-9.174-2.832-2.807-9.09 9.179-9.176-9.088-2.81 2.81 9.186 9.105-9.095 9.184 2.81 2.81 9.112-9.192 9.18 9.1z"/>
     </svg>
   </button>
   
@@ -145,7 +144,8 @@
       width="24"
       height="24"
       viewBox="0 0 24 24"
-      ><path d="M24 10h-10v-10h-4v10h-10v4h10v10h4v-10h10z"/>
+    >
+      <path d="M24 10h-10v-10h-4v10h-10v4h10v10h4v-10h10z"/>
     </svg>
   </button>
   <button
@@ -157,7 +157,8 @@
       width="24"
       height="24"
       viewBox="0 0 24 24"
-      ><path d="M0 10h24v4h-24z"/>
+    >
+      <path d="M0 10h24v4h-24z"/>
     </svg>
   </button>
 </div>
