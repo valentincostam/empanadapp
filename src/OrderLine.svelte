@@ -71,6 +71,10 @@
     box-shadow: 0 0 0 3px var(--primary-color);
   }
 
+  input.wrong {
+    box-shadow: 0 0 0 .2rem var(--error-color);
+  }
+
   button {
     border: 0;
     color: var(--white);
@@ -118,10 +122,6 @@
   .quantity::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
-  }
-
-  .wrong {
-    border: .2rem dashed var(--error-color);
   }
 </style>
 
