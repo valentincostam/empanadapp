@@ -59,6 +59,8 @@
 </script>
 
 <style>
+  /* CSS variables are defined in public\global.css file. */
+
   .container {
     padding: 1rem;
     max-width: 600px;
@@ -131,7 +133,7 @@
   }
 
   footer {
-    margin-top: var(--gap);
+    margin-top: calc(var(--gap) * 1.5);
     text-align: center;
     color: var(--primary-color);
     font-size: .9rem;
