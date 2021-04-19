@@ -26,12 +26,17 @@
 
 <style>
   .order-line {
-    --gap: .4rem;
+    --grid-track-size: calc(var(--gap) * 3);
     display: grid;
-    grid-template-columns: 3rem 3rem 1fr 3rem 3rem;
-    grid-template-rows: 3rem;
-    gap: var(--gap);
-    margin-bottom: var(--gap);
+    grid-template-columns:
+      var(--grid-track-size)
+      var(--grid-track-size)
+      1fr
+      var(--grid-track-size)
+      var(--grid-track-size);
+    grid-template-rows: var(--grid-track-size);
+    gap: var(--small-gap);
+    margin-bottom: var(--small-gap);
   }
 
   .input {
@@ -40,6 +45,7 @@
     padding: .6rem .8rem;
     border: 0;
     border-radius: 3px;
+    color: var(--font-color)
   }
 
   .input::-webkit-calendar-picker-indicator {
@@ -48,7 +54,7 @@
 
   .button {
     border: 0;
-    color: #fff;
+    color: var(--white);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -59,19 +65,19 @@
     --size: 12px;
     width: var(--size);
     height: var(--size);
-    fill: #fff;
+    fill: var(--white);
   }
 
   .remove {
-    background-color: #bd9354;
+    background-color: var(--terciary-color);
   }
 
   .sum {
-    background-color: #85603f;
+    background-color: var(--primary-color);
   }
 
   .substract {
-    background-color: #bd9354;
+    background-color: var(--secondary-color);
   }
 
   .quantity {
@@ -81,12 +87,12 @@
 
   .quantity::-webkit-outer-spin-button,
   .quantity::-webkit-inner-spin-button {
-      -webkit-appearance: none;
-      margin: 0;
+    -webkit-appearance: none;
+    margin: 0;
   }
 
   .wrong {
-    border: .2rem dashed #c31111;
+    border: .2rem dashed var(--error-color);
   }
 
 

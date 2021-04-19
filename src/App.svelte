@@ -69,7 +69,7 @@
     text-align: center;
     font-weight: 900;
     font-size: 2.4rem;
-    color: #85603f;
+    color: var(--primary-color);
     letter-spacing: -.12rem;
     margin: 0;
     margin-bottom: 1rem;
@@ -83,7 +83,7 @@
     padding: .7rem 1.2rem;
     width: 100%;
     border: 0;
-    color: #fff;
+    color: var(--white);
     font-size: 1rem;
     border-radius: 3px;
   }
@@ -92,11 +92,11 @@
     --size: 18px;
     width: var(--size);
     height: var(--size);
-    fill: #fff;
+    fill: var(--white);
   }
 
   .add-order-line {
-    background-color: #85603f;
+    background-color: var(--primary-color);
   }
 
   .message {
@@ -105,11 +105,11 @@
     font-size: 1.1rem;
     white-space: pre-wrap;
     margin: 1rem 0 .5rem;
-    background-color: #fff;
+    background-color: var(--white);
   }
 
   .copy-message {
-    background-color: #9e7540;
+    background-color: var(--secondary-color);
   }
 
   .footer {
@@ -119,7 +119,7 @@
 
   .link {
     text-decoration: none;
-    color: #85603f;
+    color: var(--primary-color);
   }
 
   .link:hover {
