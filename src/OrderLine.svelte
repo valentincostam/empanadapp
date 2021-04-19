@@ -18,8 +18,8 @@
   }
 
   function handleBlur(event) {
-    if (event.target.value < 0) {
-      quantity = 0;
+    if (event.target.value < 1) {
+      quantity = 1;
     };
   }
 
