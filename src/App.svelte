@@ -133,7 +133,7 @@
   }
 
   footer {
-    margin-top: calc(var(--gap) * 1.5);
+    margin-top: var(--gap);
     text-align: center;
     color: var(--primary-color);
     font-size: .9rem;
