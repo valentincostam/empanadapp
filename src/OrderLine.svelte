@@ -37,6 +37,8 @@
 </script>
 
 <style>
+  /* CSS variables are defined in public\global.css file. */
+  
   .order-line {
     --grid-track-size: calc(var(--gap) * 3);
     display: grid;
@@ -139,7 +141,7 @@
   </button>
   
   <input
-    class="input quantity"
+    class="quantity"
     type="number"
     min="1"
     bind:value={quantity}
@@ -147,7 +149,6 @@
   >
 
   <input
-    class="input"
     class:wrong={isDuplicated}
     type="text"
     list="availableFlavors"
@@ -163,7 +164,7 @@
   </datalist>
 
   <button
-    class="button sum"
+    class="sum"
     on:click={sum}
   >
     <svg
@@ -176,7 +177,7 @@
     </svg>
   </button>
   <button
-    class="button substract"
+    class="substract"
     on:click={substract}
   >
     <svg
