@@ -86,6 +86,11 @@
     color: var(--white);
     font-size: 1rem;
     border-radius: 3px;
+    cursor: pointer;
+  }
+
+  button:active {
+    transform: translateY(2px);
   }
 
   .button__icon {
