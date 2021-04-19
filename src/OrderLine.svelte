@@ -64,6 +64,11 @@
     display: none;
   }
 
+  input:focus {
+    outline: 0;
+    box-shadow: 0 0 0 3px var(--primary-color);
+  }
+
   button {
     border: 0;
     color: var(--white);
@@ -76,6 +81,11 @@
 
   button:active {
     transform: translateY(2px);
+  }
+
+  button:focus {
+    outline: 0;
+    box-shadow: 0 0 0 3px var(--white);
   }
 
   .icon {

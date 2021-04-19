@@ -93,6 +93,12 @@
     transform: translateY(2px);
   }
 
+  a:focus,
+  button:focus {
+    outline: 0;
+    box-shadow: 0 0 0 3px var(--white);
+  }
+
   .button__icon {
     --size: 18px;
     width: var(--size);
