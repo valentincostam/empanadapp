@@ -154,7 +154,6 @@
     list="availableFlavors"
     placeholder="Escribí el relleno..."
     autocapitalize="off"
-    autofocus={flavor.trim() == ''}
     bind:value={flavor}
   >
   
