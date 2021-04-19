@@ -24,7 +24,11 @@
   }
 
   function remove() {
-    const isSure = confirm(`¿Estás seguro de que no querés pedir ${quantity} empanadas de ${flavor}?`);
+    const isEmpty = quantity <= 0 || flavor.trim() == '';
+
+    if (isEmpty) return dispatch('remove');
+    
+    const isSure = confirm(`¿Estás seguro de quitar ${quantity} empanadas de ${flavor} del pedido?`);
 
     if (!isSure) return;
 
