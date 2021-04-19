@@ -28,7 +28,7 @@
 
     if (isEmpty) return dispatch('remove');
     
-    const isSure = confirm(`¿Estás seguro de quitar ${quantity} ${quantity == 1 ? 'empanada' : 'empanadas'} de ${flavor} del pedido?`);
+    const isSure = confirm(`¿Querés quitar ${quantity} ${quantity == 1 ? 'empanada' : 'empanadas'} de ${flavor} del pedido?`);
 
     if (!isSure) return;
 
