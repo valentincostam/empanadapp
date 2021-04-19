@@ -22,6 +22,14 @@
       quantity = 0;
     };
   }
+
+  function remove() {
+    const isSure = confirm(`¿Estás seguro de que no querés pedir ${quantity} empanadas de ${flavor}?`);
+
+    if (!isSure) return;
+
+    dispatch('remove');
+  }
 </script>
 
 <style>
@@ -99,7 +107,7 @@
 <div class="order-line">
   <button
     class="remove"
-    on:click={() => dispatch('remove')}
+    on:click={remove}
   >
     <svg
       class="icon"
