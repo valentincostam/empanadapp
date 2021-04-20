@@ -115,7 +115,7 @@
 
   .quantity {
     -moz-appearance: textfield;
-    text-align: right;
+    text-align: center;
   }
 
   .quantity::-webkit-outer-spin-button,
