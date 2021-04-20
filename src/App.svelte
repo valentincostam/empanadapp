@@ -23,11 +23,21 @@
     .map(({ quantity, flavor }) => `${quantity} de ${flavor.trim()}\n`)
     .join('');
 
-  $: message = `Hola. Te encargo ${total} empanadas, por favor:\n\n${order}`;
+  $: message = `${getGreeting()}. Te encargo ${total} empanadas, por favor:\n\n${order}`;
 
   $: hasDuplicates = new Set(usedFlavors).size !== validOrderLines.length;
 
   $: hasEmptyLine = $orderLines.some(({ flavor }) => flavor.trim() == '');
+
+  function getGreeting() {
+    const currentHour = new Date().getHours();
+
+    if (currentHour < 12) return 'Buenos días';
+
+    if (currentHour < 20) return 'Buenas tardes';
+
+    return 'Buenas noches';
+  }
   
   function addOrderLine() {
     const newOrderLine = {
