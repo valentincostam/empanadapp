@@ -4,6 +4,7 @@
   import { orderLines } from "./stores";
 
   let copyButton;
+  let messageWasCopied = false;
   
   $: usedFlavors = $orderLines.map(({ flavor }) => flavor);
 
@@ -46,10 +47,12 @@
     navigator.clipboard.writeText(message);
     copyButton.querySelector('span').textContent = '¡Copiado!';
     copyButton.disabled = true;
+    messageWasCopied = true;
     
     setTimeout(() => {
       copyButton.querySelector('span').textContent = 'Copiar mensaje';
       copyButton.disabled = false;
+      messageWasCopied = false;
     }, 2000);
   }
 
@@ -128,6 +131,23 @@
     background-color: var(--white);
   }
 
+  .message--copied {
+    box-shadow: 0 0 0 rgba(255, 255, 255, 1);
+    animation: pulse 1s 1;
+  }
+
+  @keyframes pulse {
+    0% {
+      box-shadow: 0 0 0 0 rgba(255, 255, 255, .8);
+    }
+    70% {
+      box-shadow: 0 0 0 1rem rgba(255, 255, 255, 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+    }
+  }
+
   .copy-message {
     background-color: var(--secondary-color);
   }
@@ -192,7 +212,7 @@
     {/if}
 
     {#if validOrderLines.length}
-      <div class="message">
+      <div class="message {messageWasCopied ? 'message--copied' : ''}">
         {message}
       </div>
 
