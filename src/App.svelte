@@ -53,6 +53,18 @@
     $orderLines = $orderLines.filter(orderLine => orderLine.id != id);
   }
 
+  function removeAllOrderLines() {
+    const isSure = confirm(`¿Querés eliminar todo pedido?`);
+
+    if (!isSure) return;
+
+    $orderLines = [];
+  }
+
+  function sortOrderLines() {
+    $orderLines = $orderLines.sort((a, b) => b.quantity - a.quantity);
+  }
+
   function copyMessage() {
     navigator.clipboard.writeText(message);
     copyButton.querySelector('span').textContent = '¡Copiado!';
@@ -97,28 +109,52 @@
     margin-bottom: calc(var(--gap) * 1.5);
   }
 
+  .action-buttons {
+    --grid-track-size: calc(var(--gap) * 3);
+    display: grid;
+    grid-template-columns:
+      var(--grid-track-size)
+      1fr
+      var(--grid-track-size);
+    grid-template-rows: var(--grid-track-size);
+    gap: var(--small-gap);
+  }
+
   .button {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: .5rem;
-    padding: .7rem 1.2rem;
+    /* padding: .7rem 1.2rem; */
     width: 100%;
     border: 0;
     color: var(--white);
     font-size: 1rem;
     border-radius: 3px;
     cursor: pointer;
+    height: calc(var(--gap) * 3);
   }
 
-  button:active {
+  .button:active {
     transform: translateY(2px);
   }
 
+  .button:disabled {
+    cursor: not-allowed;
+  }
+
   a:focus,
-  button:focus {
+  .button:focus {
     outline: 0;
     box-shadow: 0 0 0 3px var(--white);
+  }
+
+  .remove {
+    background-color: var(--terciary-color);
+  }
+
+  .sort {
+    background-color: var(--secondary-color);
   }
 
   .button__icon {
@@ -204,9 +240,24 @@
       />
     {/each}
 
-    {#if !hasEmptyLine && !hasDuplicates}
+    <div class="action-buttons">
+      <button
+        class="button remove"
+        on:click={removeAllOrderLines}
+      >
+        <svg
+          class="button__icon"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+        >
+          <path d="M21 6l-3 18h-12l-3-18h2.028l2.666 16h8.611l2.666-16h2.029zm-4.711-4c-.9 0-1.631-1.099-1.631-2h-5.316c0 .901-.73 2-1.631 2h-5.711v2h20v-2h-5.711z"/>
+        </svg>
+      </button>
+      
       <button
         class="button add-order-line"
+        disabled={hasEmptyLine || hasDuplicates}
         on:click={addOrderLine}
       >
         <svg
@@ -217,9 +268,23 @@
         >
           <path d="M20 15h4.071v2h-4.071v4.071h-2v-4.071h-4.071v-2h4.071v-4.071h2v4.071zm-8 6h-12v-2h12v2zm0-4.024h-12v-2h12v2zm0-3.976h-12v-2h12v2zm12-4h-24v-2h24v2zm0-4h-24v-2h24v2z"/>
         </svg>
-         {$orderLines.length == 0 ? 'Empezar pedido' : 'Agregar otra variedad'}
+          {$orderLines.length == 0 ? 'Empezar pedido' : 'Agregar otra variedad'}
       </button>
-    {/if}
+
+      <button
+        class="button sort"
+        on:click={sortOrderLines}
+      >
+        <svg
+          class="button__icon"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+        >
+          <path d="M6 21l6-8h-4v-10h-4v10h-4l6 8zm16-12h-8v-2h8v2zm2-6h-10v2h10v-2zm-4 8h-6v2h6v-2zm-2 4h-4v2h4v-2zm-2 4h-2v2h2v-2z"/>
+        </svg>
+      </button>
+    </div>
 
     {#if validOrderLines.length}
       <div class="message {messageWasCopied ? 'message--copied' : ''}">
@@ -227,8 +292,8 @@
       </div>
 
       <button
-        bind:this={copyButton}
         class="button copy-message"
+        bind:this={copyButton}
         on:click={copyMessage}
       >
         <svg
