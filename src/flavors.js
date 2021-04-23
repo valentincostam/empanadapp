@@ -1,0 +1,15 @@
+export default [
+  "atún",
+  "capresse",
+  "carne dulce",
+  "carne",
+  "cebolla y queso",
+  "choclo",
+  "humita",
+  "jamón y queso",
+  "pescado",
+  "pollo",
+  "roquefort",
+  "verdura y queso",
+  "verdura",
+];

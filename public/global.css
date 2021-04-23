@@ -5,10 +5,10 @@
 :root {
   --primary-color: #845f3e;
   --secondary-color: #9f7641;
-  --terciary-color: #bd9456;
+  --base-color: #bd9456;
   --bg-color: #e3d18a;
   --font-color: #333;
-  --error-color: #c31111;
+  --error-color: #bf4646;
   --white: #fff;
   --gap: 1rem;
   --small-gap: calc(var(--gap) / 2);
