@@ -64,6 +64,14 @@
   .full-width {
     width: 100%;
   }
+
+  .dismiss {
+    background-color: transparent;
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+  }
 </style>
 
 <button

@@ -47,7 +47,7 @@
   let isSortAscending = true;
 
   function sortOrderLines() {
-    if (validOrderLines.length == 0) return;
+    if (validOrderLines.length < 2) return;
 
     const compareFunction = isSortAscending
       ? (a, b) => b.quantity - a.quantity
@@ -62,8 +62,14 @@
     return usedFlavors.filter(f => f.trim() === flavor.trim()).length > 1;
   }
 
+  function dismissError() {
+    errorMessage = '';
+  }
+
   function getGreeting() {
     const currentHour = new Date().getHours();
+
+    if (currentHour < 5) return 'Buenas noches';
 
     if (currentHour < 12) return 'Buenos días';
 
@@ -121,6 +127,8 @@
     color: var(--white);
     padding: .5rem .9rem;
     font-size: .8rem;
+    margin: var(--small-gap) 0;
+    position: relative;
   }
 </style>
 
@@ -135,7 +143,14 @@
 {/each}
 
 {#if errorMessage}
-  <p>{errorMessage}</p>
+  <p>
+    {errorMessage}
+    <Button
+      class="dismiss"
+      svgIconPath="M23.954 21.03l-9.184-9.095 9.092-9.174-2.832-2.807-9.09 9.179-9.176-9.088-2.81 2.81 9.186 9.105-9.095 9.184 2.81 2.81 9.112-9.192 9.18 9.1z"
+      on:click={dismissError}
+    />
+  </p>
 {/if}
 
 <div class="actions">
