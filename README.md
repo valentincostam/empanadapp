@@ -12,7 +12,7 @@ Creado con [Svelte](https://svelte.dev/).
 
 1. Agregá todas las variedades y cantidades deseadas.
 2. Ordená el pedido por cantidad.
-3. Copiá el mensaje con el pendido.
+3. Copiá el mensaje con el pedido.
 4. Enviaseló a tu lugar de empanadas favorito.
 
 ## Contribuir
