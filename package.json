@@ -1,7 +1,9 @@
 {
-  "name": "svelte-app",
+  "name": "empanad.app",
   "version": "1.0.0",
   "private": true,
+  "author": "Valentín Costa <valentincostam@gmail.com> (https://valentincosta.com)",
+  "license": "MIT",
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",
