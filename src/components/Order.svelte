@@ -85,15 +85,10 @@
       url: location.href,
     };
 
-    try {
-      if (!navigator.share)
-        return alert('No es posible usar el menú de compartir en este dispositivo.\n\nComo alternativa, copiá y compartí el enlace de la barra de direcciones.');
-        
-      await navigator.share(shareData);
-    }
-    catch(err) {
-      alert('Ocurrió un error al tratar de compartir el pedido.\n\nComo alternativa, copiá y compartí el enlace de la barra de direcciones.')
-    }
+    if (!navigator.share)
+      return alert('No es posible usar el menú de compartir en este navegador.\n\nComo alternativa, copiá y compartí el enlace de la barra de direcciones.');
+
+    await navigator.share(shareData);
   }
 
   $: usedFlavors = $orderLines.map(({ flavor }) => flavor);
