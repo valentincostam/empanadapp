@@ -78,6 +78,24 @@
     return 'Buenas noches';
   }
 
+  async function shareOrder() {
+    const shareData = {
+      title: 'empanad.app',
+      text: 'Armá tu pedido de empanadas',
+      url: location.href,
+    };
+
+    try {
+      if (!navigator.share)
+        return alert('No es posible usar el menú de compartir en este dispositivo.\n\nComo alternativa, copiá y compartí el enlace de la barra de direcciones.');
+        
+      await navigator.share(shareData);
+    }
+    catch(err) {
+      alert('Ocurrió un error al tratar de compartir el pedido.\n\nComo alternativa, copiá y compartí el enlace de la barra de direcciones.')
+    }
+  }
+
   $: usedFlavors = $orderLines.map(({ flavor }) => flavor);
 
   $: availableFlavors = flavors.filter(flavor => !usedFlavors.includes(flavor));
@@ -177,6 +195,13 @@
         : 'M6 3l-6 8h4v10h4v-10h4l-6-8zm16 6h-8v-2h8v2zm2-6h-10v2h10v-2zm-4 8h-6v2h6v-2zm-2 4h-4v2h4v-2zm-2 4h-2v2h2v-2z'
     }
     on:click={sortOrderLines}
+  />
+
+  <Button
+    class="span2"
+    text="Compartir pedido"
+    svgIconPath="M5 9c1.654 0 3 1.346 3 3s-1.346 3-3 3-3-1.346-3-3 1.346-3 3-3zm0-2c-2.762 0-5 2.239-5 5s2.238 5 5 5 5-2.239 5-5-2.238-5-5-5zm15 9c-1.165 0-2.204.506-2.935 1.301l-5.488-2.927c-.23.636-.549 1.229-.944 1.764l5.488 2.927c-.072.301-.121.611-.121.935 0 2.209 1.791 4 4 4s4-1.791 4-4-1.791-4-4-4zm0 6c-1.103 0-2-.897-2-2s.897-2 2-2 2 .897 2 2-.897 2-2 2zm0-22c-2.209 0-4 1.791-4 4 0 .324.049.634.121.935l-5.488 2.927c.395.536.713 1.128.944 1.764l5.488-2.927c.731.795 1.77 1.301 2.935 1.301 2.209 0 4-1.791 4-4s-1.791-4-4-4zm0 6c-1.103 0-2-.897-2-2s.897-2 2-2 2 .897 2 2-.897 2-2 2z"
+    on:click={shareOrder}
   />
 </div>
 
